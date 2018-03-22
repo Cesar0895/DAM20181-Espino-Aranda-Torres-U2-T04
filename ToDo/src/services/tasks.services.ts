@@ -10,8 +10,10 @@ export class TasksService {
       /**
        * getTasks
        */
-      public getTasks() {
-          return this.tasks;
-          
+  /*    public getTasks() {
+          return this.tasks;   
+      }*/
+      public gettasks(id){
+          return this.tasks.filter(function(e,index){return e.id ==id}[0]) || {id:null, title:null, description:null}; 
       }
 }

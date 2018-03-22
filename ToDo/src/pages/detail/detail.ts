@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TasksService} from "../../services/tasks.services";
 
 /**
  * Generated class for the DetailPage page.
@@ -16,7 +17,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class DetailPage {
 
   task={id:null,title:null,description:null};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tasksService:TasksService) {
+  this.task= tasksService.gettasks(2);
   }
 
   ionViewDidLoad() {
