@@ -18,7 +18,7 @@ export class DetailPage {
 
   task={id:null,title:null,description:null};
   constructor(public navCtrl: NavController, public navParams: NavParams, public tasksService:TasksService) {
-  this.task= tasksService.gettasks(2);
+ this.task = tasksService.getTask(2);
   }
 
   ionViewDidLoad() {
