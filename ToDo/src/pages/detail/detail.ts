@@ -17,8 +17,10 @@ import {TasksService} from "../../services/tasks.services";
 export class DetailPage {
 
   task={id:null,title:null,description:null};
+  id=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, public tasksService:TasksService) {
- this.task = tasksService.getTask(2);
+    this.id=navParams.get('id');
+    this.task = tasksService.getTask(this.id);
   }
 
   ionViewDidLoad() {

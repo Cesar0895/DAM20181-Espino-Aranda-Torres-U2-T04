@@ -14,9 +14,9 @@ export class HomePage {
     this.tasks=tasksService.getTasks();
   }
 
-  public goToDetail() {
+  public goToDetail(id) {
     // Let's navigate from TabsPage to Page1
-    this.navCtrl.push(DetailPage);
+    this.navCtrl.push(DetailPage, {id:id});
  }
 
 }

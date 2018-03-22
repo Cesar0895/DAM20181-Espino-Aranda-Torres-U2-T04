@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let task of tasks" (click)="goToDetail()">
+    <button ion-item *ngFor="let task of tasks" (click)="goToDetail(task.id)">
       {{ task.title }}
     </button>  
   </ion-list>
