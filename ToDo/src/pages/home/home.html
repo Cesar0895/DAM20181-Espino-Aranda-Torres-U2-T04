@@ -11,9 +11,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content  padding>
-  <ion-list>
-    <button ion-item *ngFor="let task of tasks" (click)="goToDetail(task.id)" icon-left>
+<ion-content padding class="master">
+  <ion-list class="master">
+    <button ion-item *ngFor="let task of tasks" (click)="goToDetail(task.id)" icon-left class="master">
         <ion-icon name="hammer"></ion-icon>
       {{ task.title }}
     </button>  
