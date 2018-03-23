@@ -1,14 +1,20 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>
       ToDo-List
     </ion-title>
+    <ion-buttons end>
+        <button ion-button large icon-only color="secondary">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content  padding>
   <ion-list>
-    <button ion-item *ngFor="let task of tasks" (click)="goToDetail(task.id)">
+    <button ion-item *ngFor="let task of tasks" (click)="goToDetail(task.id)" icon-left>
+        <ion-icon name="hammer"></ion-icon>
       {{ task.title }}
     </button>  
   </ion-list>
