@@ -20,11 +20,21 @@ export class DetailPage {
   id=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, public tasksService:TasksService) {
     this.id=navParams.get('id');
+    if (this.id!=0) {
+      this.task=tasksService.getTask(this.id);
+    }
     this.task = tasksService.getTask(this.id);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPage');
+  }
+
+  addTask(){
+    this.task.id= Date.now();
+    this.tasksService.createTask(this.task);
+    alert("Tarea creada");
+    this.navCtrl.pop();
   }
 
 }

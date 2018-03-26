@@ -17,4 +17,11 @@ export class TasksService {
       public getTask(id){
           return this.tasks.filter(function(e,i){return e.id ==id})[0] || {id:null,title:null,description:null}; 
       }
-}
+
+      /**
+       * name
+       */
+      public createTask(Task) {
+       this.tasks.push(Task)   
+      }
+    }

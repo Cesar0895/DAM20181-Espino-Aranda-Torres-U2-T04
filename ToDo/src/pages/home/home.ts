@@ -19,4 +19,9 @@ export class HomePage {
     this.navCtrl.push(DetailPage, {id:id});
  }
 
+ public createTask() {
+  // Let's navigate from TabsPage to Page1
+  this.navCtrl.push(DetailPage, {id:0});
+}
+
 }
