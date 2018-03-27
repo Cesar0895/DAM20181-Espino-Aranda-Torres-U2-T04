@@ -28,9 +28,13 @@
       
       </ion-list>
 
-      <button ion-button icon-left (click)="addTask()" color="secondary" outline>
+      <button ion-button icon-left (click)="addTask()" color="secondary" outline> 
         <ion-icon name="add"></ion-icon>
         Save
       </button>
 
+      <button *ngIf="id != 0" ion-button icon-left (click)="deleteTask()" color="danger" outline> 
+          <ion-icon name="Eliminar Nota"></ion-icon>
+          Eliminar
+        </button>
 </ion-content>

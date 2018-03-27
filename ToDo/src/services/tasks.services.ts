@@ -25,10 +25,17 @@ export class TasksService {
        this.tasks.push(Task)   
       }
       public editTask(Task) {
-        for(let i; i<this.tasks.length;i++){
+        for(let i = 0; i<this.tasks.length;i++){
             if(this.tasks[i].id== Task.id){
                 this.tasks[i] =Task;
             }
         }
        }
+      public deleteTask(Task){
+        for(let i = 0; i<this.tasks.length;i++){
+            if(this.tasks[i].id== Task.id){
+                this.tasks.splice(i, 1);
+            }
+        }        
+      } 
     }

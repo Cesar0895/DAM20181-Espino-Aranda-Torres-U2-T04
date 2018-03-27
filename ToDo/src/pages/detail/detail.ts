@@ -36,11 +36,16 @@ export class DetailPage {
       alert("Tarea Editada");
       
        //estamos editando 
-    }else{
+    }else{ 
       this.task.id= Date.now();
       this.tasksService.createTask(this.task);
       alert("Tarea creada");
     }
+    this.navCtrl.pop();
+  }
+  deleteTask(){
+    this.tasksService.deleteTask(this.task);
+    alert("Tarea Eliminada");
     this.navCtrl.pop();
   }
 
