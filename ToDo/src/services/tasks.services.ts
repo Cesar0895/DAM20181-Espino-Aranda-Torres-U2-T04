@@ -24,4 +24,11 @@ export class TasksService {
       public createTask(Task) {
        this.tasks.push(Task)   
       }
+      public editTask(Task) {
+        for(let i; i<this.tasks.length;i++){
+            if(this.tasks[i].id== Task.id){
+                this.tasks[i] =Task;
+            }
+        }
+       }
     }

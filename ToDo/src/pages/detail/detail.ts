@@ -31,9 +31,16 @@ export class DetailPage {
   }
 
   addTask(){
-    this.task.id= Date.now();
-    this.tasksService.createTask(this.task);
-    alert("Tarea creada");
+    if (this.id!=0) {
+      this.tasksService.editTask(this.task);
+      alert("Tarea Editada");
+      
+       //estamos editando 
+    }else{
+      this.task.id= Date.now();
+      this.tasksService.createTask(this.task);
+      alert("Tarea creada");
+    }
     this.navCtrl.pop();
   }
 
