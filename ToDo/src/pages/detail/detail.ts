@@ -44,6 +44,9 @@ export class DetailPage {
     this.navCtrl.pop();
   }
   deleteTask(){
+
+    //preguntar si estas seguro de eliminar nota
+    
     this.tasksService.deleteTask(this.task);
     alert("Tarea Eliminada");
     this.navCtrl.pop();
