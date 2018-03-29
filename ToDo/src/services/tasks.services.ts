@@ -1,7 +1,13 @@
 import { Injectable } from "@angular/core";
+import {AngularFireDatabase} from "angularfire2/database/database";
 
 @Injectable()
 export class TasksService {
+
+constructor(public afDB:AngularFireDatabase){
+
+}
+
     tasks=[
         {id:1,title:'task1',description:'Description of the task1'},
         {id:2,title:'task2',description:'Description of the task2'},
@@ -21,9 +27,14 @@ export class TasksService {
       /**
        * name
        */
+
       public createTask(Task) {
-       this.tasks.push(Task)   
+      this.afDB.database.ref('notas/'+Task.id).set(Task);
+
+      //  this.tasks.push(Task)   
+      
       }
+
       public editTask(Task) {
         for(let i = 0; i<this.tasks.length;i++){
             if(this.tasks[i].id== Task.id){
@@ -31,6 +42,7 @@ export class TasksService {
             }
         }
        }
+
       public deleteTask(Task){
         for(let i = 0; i<this.tasks.length;i++){
             if(this.tasks[i].id== Task.id){
