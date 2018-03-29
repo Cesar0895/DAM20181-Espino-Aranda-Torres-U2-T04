@@ -33,13 +33,13 @@ export class DetailPage {
   addTask(){
     if (this.id!=0) {
       this.tasksService.editTask(this.task);
-      alert("Tarea Editada");
+      alert("Tarea Modificada");
       
        //estamos editando 
     }else{ 
       this.task.id= Date.now();
       this.tasksService.createTask(this.task);
-      alert("Tarea creada");
+      alert("Tarea Creada");
     }
     this.navCtrl.pop();
   }
