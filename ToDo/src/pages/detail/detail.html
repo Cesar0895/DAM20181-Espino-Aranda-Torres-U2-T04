@@ -29,12 +29,12 @@
       </ion-list>
 
       <div class="trans"> 
-      <button ion-button icon-left (click)="addTask()" color="secondary" outline> 
+      <button ion-button icon-left btn-responsive btninter centrado (click)="addTask()" color="secondary" outline> 
         <ion-icon name="add"></ion-icon>
         Save
       </button>
 
-      <button *ngIf="id != 0" ion-button icon-left (click)="deleteTask()" color="danger" outline> 
+      <button *ngIf="id != 0" ion-button icon-left btn-responsive btninter right centrado (click)="deleteTask()" color="danger" outline> 
           <ion-icon name="close"></ion-icon>
           Delete
         </button>
