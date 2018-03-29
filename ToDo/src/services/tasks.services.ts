@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
+
 import {AngularFireDatabase} from "angularfire2/database/database";
+
+
 
 @Injectable()
 export class TasksService {
 
-constructor(public afDB:AngularFireDatabase){
-
-}
+constructor(public afDB:AngularFireDatabase){}
 
     tasks=[
         {id:1,title:'task1',description:'Description of the task1'},
@@ -31,7 +32,7 @@ constructor(public afDB:AngularFireDatabase){
       public createTask(Task) {
       this.afDB.database.ref('notas/'+Task.id).set(Task);
 
-      //  this.tasks.push(Task)   
+    //this.tasks.push(Task)   
       
       }
 

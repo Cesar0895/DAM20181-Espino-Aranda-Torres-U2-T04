@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TasksService} from "../../services/tasks.services";
 
+
+
 /**
  * Generated class for the DetailPage page.
  *

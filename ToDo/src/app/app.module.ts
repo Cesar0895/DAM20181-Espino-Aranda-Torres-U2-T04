@@ -10,14 +10,18 @@ import { TasksService } from "../services/tasks.services";
 import { DetailPage } from '../pages/detail/detail';
 
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database/';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
 export const firebaseConfig = {
 apiKey: "AIzaSyA32XZdehJZD1Pm1HvJVMj5IxbDEdJz6_s",
     authDomain: "notionic-38134.firebaseapp.com",
     databaseURL: "https://notionic-38134.firebaseio.com",
-  
     storageBucket: "notionic-38134.appspot.com",
     messagingSenderId: "844396641680"
-}
+};
 
 
 @NgModule({
@@ -28,7 +32,10 @@ apiKey: "AIzaSyA32XZdehJZD1Pm1HvJVMj5IxbDEdJz6_s",
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
