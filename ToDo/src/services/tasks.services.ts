@@ -48,10 +48,13 @@ constructor(public afDB:AngularFireDatabase){}
        }
 
       public deleteTask(Task){
-        for(let i = 0; i<this.tasks.length;i++){
+       /*  for(let i = 0; i<this.tasks.length;i++){
             if(this.tasks[i].id== Task.id){
                 this.tasks.splice(i, 1);
             }
-        }        
+        }*/
+        
+        this.afDB.database.ref('notas/'+Task.id).remove();
+
       } 
     }

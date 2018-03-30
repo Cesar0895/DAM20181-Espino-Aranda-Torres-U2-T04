@@ -17,7 +17,8 @@ import {TasksService} from "../../services/tasks.services";
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-
+  
+  show=true;
   task:any={id:null,title:null,description:null};
   id=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, public tasksService:TasksService) {
@@ -49,7 +50,7 @@ export class DetailPage {
   deleteTask(){
 
     //preguntar si estas seguro de eliminar nota
-    
+    this.show =false;
     this.tasksService.deleteTask(this.task);
     alert("Tarea Eliminada");
     this.navCtrl.pop();
