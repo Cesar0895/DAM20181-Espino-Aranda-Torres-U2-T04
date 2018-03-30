@@ -18,14 +18,15 @@ import {TasksService} from "../../services/tasks.services";
 })
 export class DetailPage {
 
-  task={id:null,title:null,description:null};
+  task:any={id:null,title:null,description:null};
   id=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, public tasksService:TasksService) {
     this.id=navParams.get('id');
     if (this.id!=0) {
-      this.task=tasksService.getTask(this.id);
+      tasksService.getTask(this.id).valueChanges().subscribe(note =>{
+        console.log(note)          
+        this.task = note});
     }
-    this.task = tasksService.getTask(this.id);
   }
 
   ionViewDidLoad() {
