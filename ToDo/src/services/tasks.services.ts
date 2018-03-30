@@ -37,11 +37,14 @@ constructor(public afDB:AngularFireDatabase){}
       }
 
       public editTask(Task) {
-        for(let i = 0; i<this.tasks.length;i++){
+       /* for(let i = 0; i<this.tasks.length;i++){
             if(this.tasks[i].id== Task.id){
                 this.tasks[i] =Task;
             }
-        }
+      }*/
+
+      this.afDB.database.ref('notas/'+Task.id).set(Task);
+
        }
 
       public deleteTask(Task){
