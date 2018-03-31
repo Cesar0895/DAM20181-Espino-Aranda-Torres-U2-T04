@@ -3,19 +3,20 @@
     <ion-title>
       ToDo-List
     </ion-title>
-    <ion-buttons end>
-        <button ion-button large icon-only (click)="createTask()" color="secondary">
-          <ion-icon name="add"></ion-icon>
-        </button>
-      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="master">
   <ion-list class="master">
-    <button ion-item *ngFor="let task of tasks" (click)="goToDetail(task.id)" icon-left class="master">
+    <button ion-item *ngFor="let task of tasks" (dblclick)="goToDetail(task.id)" icon-left class="master">
         <ion-icon name="hammer"></ion-icon>
       {{ task.title }}
     </button>  
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="createTask()" color="danger">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

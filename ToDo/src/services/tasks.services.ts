@@ -6,7 +6,9 @@ export class TasksService {
         {id:1,title:'task1',description:'Description of the task1'},
         {id:2,title:'task2',description:'Description of the task2'},
         {id:3,title:'task3',description:'Description of the task3'},
-        {id:4,title:'task4',description:'Description of the task4'}
+        {id:4,title:'task4',description:'Description of the task4'},
+        {id:5,title:'task5',description:'Description of the task2'},
+        {id:6,title:'task6',description:'Description of the task3'}
       ];
       /**
        * getTasks
