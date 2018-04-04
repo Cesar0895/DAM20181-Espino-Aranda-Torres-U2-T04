@@ -3,15 +3,19 @@ import { NavController } from 'ionic-angular';
 import { TasksService } from "../../services/tasks.services";
 import { DetailPage } from '../detail/detail';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
  tasks=[];
- @ViewChild('myNav') nav: NavController
+ @ViewChild('myNav') nav: NavController;
   constructor(public navCtrl: NavController, public tasksService : TasksService) {
-    this.tasks=tasksService.getTasks();
+
+    tasksService.getTasks().subscribe(notas =>{
+      this.tasks=notas;
+    });
   }
 
   public goToDetail(id) {

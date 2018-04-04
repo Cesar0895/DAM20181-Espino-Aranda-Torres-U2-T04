@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController  } from 'ionic-angular';
 import {TasksService} from "../../services/tasks.services";
 
+
+
 /**
  * Generated class for the DetailPage page.
  *
@@ -15,19 +17,19 @@ import {TasksService} from "../../services/tasks.services";
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-
- 
-
-  task={id:null,title:null,description:null};
+  
+  show=true;
+  task:any={id:null,title:null,description:null};
   id=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public tasksService:TasksService, public toastCtrl: ToastController) {
 
     this.id=navParams.get('id');
     if (this.id!=0) {
-      this.task=tasksService.getTask(this.id);
+      tasksService.getTask(this.id).valueChanges().subscribe(note =>{
+        console.log(note)          
+        this.task = note});
     }
-    this.task = tasksService.getTask(this.id);
   }
 
   ionViewDidLoad() {
@@ -37,27 +39,20 @@ export class DetailPage {
   addTask(){
     if (this.id!=0) {
       this.tasksService.editTask(this.task);
-      const toast = this.toastCtrl.create({
-        message: 'Tarea editada',
-        duration: 2000
-        
-      });
-      toast.present();
+      alert("Tarea Modificada");
       
        //estamos editando 
     }else{ 
       this.task.id= Date.now();
       this.tasksService.createTask(this.task);
-      const toast = this.toastCtrl.create({
-        message: 'Tarea Creada',
-        duration: 2000
-        
-      });
-      toast.present();
+      alert("Tarea Creada");
     }
     this.navCtrl.pop();
   }
   deleteTask(){
+
+    //preguntar si estas seguro de eliminar nota
+    this.show =false;
     this.tasksService.deleteTask(this.task);
     this.navCtrl.pop();
     const toast = this.toastCtrl.create({
