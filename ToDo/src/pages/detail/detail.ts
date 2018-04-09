@@ -39,13 +39,23 @@ export class DetailPage {
   addTask(){
     if (this.id!=0) {
       this.tasksService.editTask(this.task);
-      alert("Tarea Modificada");
+      const toast = this.toastCtrl.create({
+        message: 'Tarea modificada',
+        duration: 2000
+        
+      });
+      toast.present();
       
        //estamos editando 
     }else{ 
       this.task.id= Date.now();
       this.tasksService.createTask(this.task);
-      alert("Tarea Creada");
+      const toast = this.toastCtrl.create({
+        message: 'Tarea creada',
+        duration: 2000
+        
+      });
+      toast.present();
     }
     this.navCtrl.pop();
   }

@@ -1,27 +1,22 @@
-<!--
-  Generated template for the DetailPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Descripcion De Tareas</ion-title>
+    <ion-title>Description of tasks</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding *ngIf="show">
-    <ion-list>
+<ion-content padding *ngIf="show" class="lista">
+    <ion-list >
 
-        <ion-item>
+        <ion-item class="master">
           <ion-label floating>Tarea</ion-label>
           <ion-input type="text" [(ngModel)]="task.title"></ion-input>
         </ion-item>
       
-        <ion-item>
+        <ion-item class="master">
           <ion-label floating>Descripcion</ion-label>
           <ion-textarea [(ngModel)]="task.description"></ion-textarea>
         </ion-item>
@@ -30,15 +25,18 @@
 
       <div class="trans"> 
 
-      <button ion-button icon-left btn-responsive btninter centrado (click)="addTask()" color="secondary" outline> 
-        <ion-icon name="add"></ion-icon>
-        Save
-      </button>
 
-      <button *ngIf="id != 0" ion-button icon-left btn-responsive btninter right centrado (click)="deleteTask()" color="danger" outline> 
-          <ion-icon name="close"></ion-icon>
-          Delete
-        </button>
+      <ion-fab left bottom>
+        <button ion-fab color="dark"><ion-icon name="arrow-dropright-circle"></ion-icon></button>
+        <ion-fab-list side="right">
+          <button ion-fab (click)="addTask()" color="secondary">
+            <ion-icon name="create"></ion-icon></button>
+          <button ion-fab *ngIf="id != 0" (click)="deleteTask()" color="danger">
+            <ion-icon name="trash"></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
+
+        
 
         </div>
         
